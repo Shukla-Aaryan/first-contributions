@@ -226,6 +226,52 @@ Now submit the pull request.
 
 Soon I'll be merging all your changes into the main branch of this project. You will get a notification email once the changes have been merged.
 
+## 🛠️ Dealing with Merge Conflicts in This Repository
+### What is a Merge Conflict?
+A merge conflict happens when Git can't automatically combine changes from two branches. This usually occurs when two people edit the same part of a file—like when everyone adds their name to the same Contributors.md file in this repository.
+
+### Why Does It Happen So Often Here?
+Since many first-time contributors are adding their names to the bottom of the same file (Contributors.md), Git sees these changes as overlapping. This makes it hard for Git to decide which change to keep.
+
+### How to Resolve a Merge Conflict
+
+You have two main options: using the command line or a GUI tool.
+
+💻 Using Command Line (CLI)
+After trying to merge or pull, you'll see an error about a conflict.
+
+Run:
+git status
+to see which file has the conflict.
+
+Open the conflicted file. Look for markers like this:
+
+<<<<<<< HEAD
+Your changes
+=======
+Incoming changes
+>>>>>>> branch-name
+Edit the file to keep both contributions, or combine them as needed.
+
+After editing, save the file and run:
+
+git add Contributors.md
+git commit
+git push origin your-branch-name
+
+### 🖥️ Using GitHub Desktop or VSCode
+GitHub Desktop will highlight the conflict and let you "Choose both changes."
+
+VSCode shows inline options like "Accept Current," "Accept Incoming," or "Accept Both."
+
+Once resolved, save the file and commit the changes.
+
+Tip: Always pull the latest changes before creating a new pull request to reduce the chances of conflicts:
+
+bash
+git pull origin main --rebase
+📘 Still stuck? Check out this GitHub Docs guide on resolving conflicts.
+
 ## Where to go from here?
 
 Congrats! You just completed the standard _fork -> clone -> edit -> pull request_ workflow that you'll often encounter as a contributor!
